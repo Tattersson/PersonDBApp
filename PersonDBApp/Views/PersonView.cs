@@ -19,9 +19,17 @@ namespace PersonDBApp
         public void CreatePerson()
         {
             Person newPerson = new Person();
-            newPerson.FirstName = "Test";
-            newPerson.LastName = "Person";
-            newPerson.City = "Lappeenranta";
+            Console.Write("Give me the FistName -> ");
+            newPerson.FirstName = Console.ReadLine();
+            Console.Write("Give me the LastName -> ");
+            newPerson.LastName = Console.ReadLine();
+            Console.Write("Give me the city -> ");
+            newPerson.City = Console.ReadLine();
+            Console.Write("Sex of the person -> ");
+            newPerson.Sex = Console.ReadLine();
+            Console.Write("Shoe size -> ");
+            newPerson.ShoeSize = Convert.ToInt32(Console.ReadLine());
+
 
             newPerson = _personService.Create(newPerson);
 
@@ -41,6 +49,9 @@ namespace PersonDBApp
             long id = Convert.ToInt64(Console.ReadLine());
             var person = _personService.Read(id);
             SinglePrinter(person);
+            Console.WriteLine("Deleting person...");
+            _personService.Delete(id);
+            Console.WriteLine($"{id} was deleted.");
         }
 
         public void PrintAllPeople()
@@ -54,9 +65,10 @@ namespace PersonDBApp
         public void PrintByCity()
         {
             Console.Write("What city to look for? -> ");
-            string city = Console.ReadLine();
-            var people = _personService.Read(city);
-            Printer(people);
+               string city = Console.ReadLine();
+               var people = _personService.Read(city);
+               Printer(people);
+         
             
         }
 
@@ -66,7 +78,16 @@ namespace PersonDBApp
             long id = Convert.ToInt64(Console.ReadLine());
             var person = _personService.Read(id);
 
-            SinglePrinter(person);
+            if (person != null)
+            {
+                SinglePrinter(person);
+            }
+            else
+            {
+                Console.WriteLine($"{id} Was not found");
+            }
+
+            
         }
 
         public void UpdatePerson()

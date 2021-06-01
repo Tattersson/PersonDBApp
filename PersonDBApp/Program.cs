@@ -51,8 +51,8 @@ namespace PersonDBApp
             Console.WriteLine("Database example");
             Console.WriteLine("[C] - Add new person.");
             Console.WriteLine("[R] - Print all people.");
-            Console.WriteLine("[U] - Update person info. - Update coming soon!");
-            Console.WriteLine("[D] - Remove a person. - Update coming soon!");
+            Console.WriteLine("[U] - Update person info.");
+            Console.WriteLine("[D] - Remove a person.");
             Console.WriteLine("[R1]- Print person.");
             Console.WriteLine("[R2]- Print people from a city.");
             Console.WriteLine("[X] - EXIT.");

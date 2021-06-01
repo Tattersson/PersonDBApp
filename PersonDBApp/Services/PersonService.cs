@@ -24,15 +24,17 @@ namespace PersonDBApp.Services
         public void Delete(long id)
         {
             var delPerson = _personRepository.Read(id);
+
             if (delPerson != null)
             {
-                var deldbPerson = _personRepository.DeletePerson(id);
-                return deldbPerson;
+                _personRepository.DeletePerson(delPerson);
             }
             else
             {
-
+                Console.WriteLine("Cannot be made");
             }
+
+       
         }
 
         public List<Person> Read()

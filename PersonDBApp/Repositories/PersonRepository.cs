@@ -36,8 +36,7 @@ namespace PersonDBApp.Repositories
             try
             {
                 _context.Remove(person);
-                _context.SaveChanges();
-                
+                _context.SaveChanges();               
             }
             catch (Exception ex)
             {
